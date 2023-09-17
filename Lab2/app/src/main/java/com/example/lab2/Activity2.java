@@ -1,7 +1,13 @@
 package com.example.lab2;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView; // Importera TextView-klassen
+import android.widget.Toast;
+
 import java.util.Random;
 
 public class Activity2 extends AppCompatActivity {
@@ -27,4 +33,27 @@ public class Activity2 extends AppCompatActivity {
 
         slumpadTextView.setText(doltOrd.toString());
     }
+
+    public void guessLetter(View view) {
+        EditText guessEditText = findViewById(R.id.guess);
+        String input = guessEditText.getText().toString(); // Gör inmatningen till små bokstäver
+
+        for (int i = 0; i < slumpatOrd.length(); i++) {
+            if (slumpatOrd.charAt(i) == input.charAt(0)) {
+                doltOrd.setCharAt(i, input.charAt(0));
+            }
+        }
+
+        slumpadTextView.setText(doltOrd.toString());
+        guessEditText.setText("");
+
+        if(!slumpadTextView.getText().toString().contains("_")){ // https://stackoverflow.com/questions/9915203/how-to-check-if-a-textview-contains-a-certain-string
+
+            Toast.makeText(Activity2.this, "GRATTIS BIIIITCH", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+
+        }
+    }
+
 }
