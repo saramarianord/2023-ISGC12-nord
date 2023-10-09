@@ -42,6 +42,8 @@ public class Activity2 extends AppCompatActivity {
         for (int i = 0; i < slumpatOrd.length(); i++) {
             if (slumpatOrd.charAt(i) == input.charAt(0)) {
                 doltOrd.setCharAt(i, input.charAt(0));
+            }else{
+
             }
         }
             slumpadTextView.setText(doltOrd.toString());
