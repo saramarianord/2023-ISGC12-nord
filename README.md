@@ -1,6 +1,3 @@
-# Exempel dokumentation Skier exemplet
-
-
 # Gruppmedlemmar
 
 | Namn | Roll        
